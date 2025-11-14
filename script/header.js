@@ -1,4 +1,3 @@
-// 페이지 로드 후 실행
 document.addEventListener('DOMContentLoaded', async () => {
     const elements = document.querySelectorAll('[data-include]');
     for (const el of elements) {
@@ -17,3 +16,4 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 });
+
