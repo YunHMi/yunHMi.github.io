@@ -48,13 +48,13 @@ body {
 }
 
 /* 다크모드 button */
-#header nav .toggleBtn {
+#header .toggleBtn {
     width: 80px;
     height: 25px;
     border: 1px solid var(--black);
     border-radius: 15px;
 }
 
-#header nav .toggleBtn > div {
+#header .toggleBtn > div {
     width: 50%;
 }
