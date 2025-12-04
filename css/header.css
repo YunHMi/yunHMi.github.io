@@ -27,7 +27,7 @@ body {
     z-index: 9999;
 }
 
-header {
+#header {
     width: 1280px;
     height: 78px;
     display: flex; 
@@ -36,13 +36,13 @@ header {
     margin: 0 auto;
 }
 
-header nav {
+#header nav {
     display: flex;
     gap: 0 30px;
     font-size: 1.2rem;
     align-items: center;
 }
 
-header nav a:hover {
+#header nav a:hover {
     color:var(--point);
 }
