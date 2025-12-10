@@ -35,6 +35,10 @@ body {
     align-items: center;
     margin: 0 auto;
 }
+#header .rightBox {
+    display: flex;
+    gap: 0 20px;
+}
 
 #header nav ul {
     display: flex;
