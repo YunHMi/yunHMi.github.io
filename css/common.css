@@ -1,6 +1,7 @@
 /* common.css */
 .leftBox { float: left;}
 .rightBox { float: right;}
+.flexBox { display: flex;}
 
 
 
