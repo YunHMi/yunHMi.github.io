@@ -44,6 +44,8 @@ body { position: relative; overflow-x: hidden;}
     font-display: swap;
 }
 
+* { font-family: 'Pretendard' sans-serif;}
+
 /* footer */
 footer {
     background: var(--point);
