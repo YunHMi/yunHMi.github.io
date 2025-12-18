@@ -4,6 +4,7 @@
 
 :root {
     --point:#fcd62d;
+    --yellow:#ffe16e;
     --white:#fff;
     --black:#323232;
     --bg:#f9f9f9;
@@ -15,7 +16,7 @@ body { position: relative; overflow-x: hidden;}
 .flexBox { display: flex;}
 
 ::selection {
-    background: var(--point);
+    background: var(--yellow);
     color: var(--white);
 }
 
@@ -29,7 +30,7 @@ body::-webkit-scrollbar-button {
 }
 
 body::-webkit-scrollbar-thumb {
-    background: #ffe16e;
+    background: var(--yellow);
     border-radius: 10px;
 }
 
