@@ -30,6 +30,8 @@ div[class^="section"] {
 .section1 span {
     position: absolute;
     bottom: 0;
-    left: 50%;
+    left: 0;
     text-align: center;
+    display: inline-block;
+    width: 100%;
 }
