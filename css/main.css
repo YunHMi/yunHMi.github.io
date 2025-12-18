@@ -15,9 +15,28 @@ div[class^="section"] {
     background-repeat: repeat;
 }
 
+.section1 .secWrap {
+    position: relative;
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+}
+
 .section1 img {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+}
+
+.section1 b {
+    position: absolute;
+    top: 0;
+}
+
+.section1 span {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    text-align: center;
 }
