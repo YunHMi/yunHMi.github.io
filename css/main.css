@@ -22,13 +22,6 @@ div[class^="section"] {
     margin: 0 auto;
 }
 
-.section1 img {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
 .section1 b {
     position: absolute;
     top: 0;
