@@ -14,37 +14,25 @@ body { position: relative; overflow-x: hidden;}
 .rightBox { float: right;}
 .flexBox { display: flex;}
 
-
-/* font추가 */
-@font-face {
-    font-family: 'Pretendard';
-    src: url('../font/Pretendard-Thin.woff2') format('woff2');
-    font-weight: 100;
-    font-display: swap;
+::selection {
+    background: var(--point);
+    color: var(--white);
 }
 
-@font-face {
-    font-family: 'Pretendard';
-    src: url('../font/Pretendard-Light.woff2') format('woff2');
-    font-weight: 300;
-    font-display: swap;
+body::-webkit-scrollbar {
+    width: 10px;  
 }
 
-@font-face {
-    font-family: 'Pretendard';
-    src: url('../font/Pretendard-Medium.woff2') format('woff2');
-    font-weight: 500;
-    font-display: swap;
+body::-webkit-scrollbar-button {
+    background: none;
+    height: 0;
 }
 
-@font-face {
-    font-family: 'Pretendard';
-    src: url('../font/Pretendard-Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-display: swap;
+body::-webkit-scrollbar-thumb {
+    background: linear-gradient(to top, rgba(181, 156, 255, 1), rgba(241, 233, 212, 1));
+    border-radius: 10px;
 }
 
-* { font-family: 'Pretendard' sans-serif;}
 
 /* footer */
 footer {
