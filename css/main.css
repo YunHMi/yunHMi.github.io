@@ -9,3 +9,8 @@ div[class^="section"] {
     box-sizing: border-box;
 }
 
+.section1 {
+    background: url(../images/section01_bg.png);
+    background-repeat: repeat;
+}
+
