@@ -1,9 +1,48 @@
+@charset "utf-8";
+
 /* common.css */
+
+:root {
+    --point:#fcd62d;
+    --white:#fff;
+    --black:#323232;
+    --bg:#f9f9f9;
+}
+
+body { position: relative; overflow-x: hidden;}
 .leftBox { float: left;}
 .rightBox { float: right;}
 .flexBox { display: flex;}
 
 
+/* font추가 */
+@font-face {
+    font-family: 'Pretendard';
+    src: url('../font/Pretendard-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('../font/Pretendard-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('../font/Pretendard-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('../font/Pretendard-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
 
 /* footer */
 footer {
