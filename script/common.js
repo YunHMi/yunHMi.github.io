@@ -1,23 +1,19 @@
-//header & footer incolude을 위해 이벤트 추가
-// function loadHTML(elementID, filePath) {
-//     fetch(filePath)
-//         .then(response => {
-//             if (!response.ok) {
-//                 throw new Error(`Error loading ${filePath}`);
-//             }
-//             return response.text();
-//             })
-            
-//             .then(data => {
-//             document.getElementById(elementID).innerHTML = data;
-//             })
-//             .catch(error => {
-//             console.error('Error:', error);
-//             });
-// }
+document.addEventListener('DOMContentLoaded', async () => {
+    const elements = document.querySelectorAll('[data-include]');
+    for (const el of elements) {
+        const file = el.getAttribute('data-include');
+        if (file) {
+            try {
+                const res = await fetch(file);
+                if (res.ok) {
+                    el.innerHTML = await res.text();
+                } else {
+                    console.error('헤더 파일 불러오기 실패:', res.status);
+                }
+            } catch (err) {
+                console.error('fetch 에러:', err);
+            }
+        }
+    }
+});
 
-// // 페이지 로드 시 header와 footer 추가
-// window.addEventListener('DOMContentLoaded', () => {
-//     loadHTML('header', 'layout/header.html');
-//     loadHTML('footer', 'layout/footer.html');
-// });
