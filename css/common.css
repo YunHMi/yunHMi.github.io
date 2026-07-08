@@ -10,7 +10,7 @@
     --point-light: #F4EEF5;
     --white: #E8DDE9;
 
-    --header-bg: rgba(255, 255, 255, 0.82);
+    --header-bg: #f3f3f3;
 }
 
 html[data-theme="dark"] {
@@ -139,6 +139,7 @@ body::-webkit-scrollbar-thumb {
 #header .header_bg {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: fit-content;
     height: 78px;
     position: sticky;
