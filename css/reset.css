@@ -52,6 +52,24 @@ ul,ol,li { list-style:none;}
 a { text-decoration:none; color:#666;}
 table,tr,td,th {border-collapse:collapse;text-align:left;}
 
-/* cursor pointer=>마우스클릭 버튼으로 변경되는 기능 */
-button {cursor:pointer;}
-.skip {display:none;}   
+/* 기본 스타일 추가 */
+.flexBox { display: flex !important;}
+.leftBox { float: left !important;}
+.rightBox { float: right !important;}
+
+.font01 { font-family: 'Cafe24 Ssurround' !important;}
+.font02 { font-family: 'Cafe24 Ssurround Air' !important;}
+
+.font12{ font-size: 12px !important;}
+.font13{ font-size: 13px !important;}
+.font14{ font-size: 14px !important;}
+.font15{ font-size: 15px !important;}
+.font16{ font-size: 16px !important;}
+.font18{ font-size: 18px !important;}
+.font20{ font-size: 20px !important;}
+
+.fontw300{ font-weight: 300 !important;}
+.fontw400{ font-weight: 400 !important;}
+.fontw500{ font-weight: 500 !important;}
+.fontw600{ font-weight: 600 !important;}
+.fontw700{ font-weight: 700 !important;}
