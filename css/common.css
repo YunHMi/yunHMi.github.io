@@ -1,14 +1,177 @@
 @charset "utf-8";
 
 /* common.css */
-
 :root {
-    --point:#fcd62d;
-    --yellow:#ffe16e;
-    --white:#fff;
-    --black:#323232;
-    --bg:#f9f9f9;
+    --bg: #FFFCFF;
+    --black: #222222;
+    --card: #FFFFFF;
+    --point: #765276;
+    --point-light: #F4EEF5;
+    --white: #E8DDE9;
 }
+
+html[data-theme="dark"] {
+    --bg: #18141A;
+    --black: #F7F2F7;
+    --card: #211B24;
+    --point: #B58AB5;
+    --point-light: #2A202C;
+    --white: #3A2C3D;
+}
+
+/* 전체 기본 컬러 */
+body {
+    background: var(--bg);
+    color: var(--black);
+    transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+/* 예시 공통 요소 */
+.header {
+    background: var(--card);
+    border: 1px solid var(--white);
+    color: var(--black);
+    transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease;
+}
+
+.header a {
+    color: var(--black);
+    transition: color 0.3s ease;
+}
+
+@media (hover: hover) {
+    .header a:hover {
+        color: var(--point);
+    }
+}
+
+.project-card,
+.card {
+    background: var(--card);
+    color: var(--black);
+    border: 1px solid var(--white);
+    transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease;
+}
+
+.point {
+    color: var(--point);
+}
+
+.point-bg {
+    background: var(--point-light);
+}
+
+/* 테마 버튼 */
+.toggleBtn {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--white);
+    border-radius: 50%;
+    background: var(--card);
+    cursor: pointer;
+    overflow: hidden;
+    flex-shrink: 0;
+    transition:
+        background-color 0.35s ease,
+        border-color 0.35s ease,
+        transform 0.25s ease;
+}
+
+@media (hover: hover) {
+    .toggleBtn:hover {
+        transform: translateY(-2px);
+    }
+}
+
+.toggleMoon,
+.toggleSun {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 22px;
+    height: 22px;
+    transform: translate(-50%, -50%);
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
+}
+
+/* 해 아이콘 */
+.toggleSun::before {
+    content: "☀";
+    display: block;
+    font-size: 21px;
+    line-height: 22px;
+    color: var(--black);
+    text-align: center;
+}
+
+/* 달 아이콘 */
+.toggleMoon::before {
+    content: "☾";
+    display: block;
+    font-size: 23px;
+    line-height: 22px;
+    color: var(--black);
+    text-align: center;
+}
+
+/* 라이트 모드: 해 노출 */
+.toggleSun {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+}
+
+.toggleMoon {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(-90deg) scale(0.5);
+}
+
+/* 다크 모드: 달 노출 */
+html[data-theme="dark"] .toggleSun {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(90deg) scale(0.5);
+}
+
+html[data-theme="dark"] .toggleMoon {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+}
+
+/* 원형 확산 효과 */
+.themeOverlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 140vmax;
+    height: 140vmax;
+    border-radius: 50%;
+    background: var(--bg);
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.themeOverlay.is-active {
+    animation: themeOverlay 0.7s ease forwards;
+}
+
+@keyframes themeOverlay {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+
+
 
 body { position: relative; overflow-x: hidden;}
 .leftBox { float: left;}
@@ -16,7 +179,7 @@ body { position: relative; overflow-x: hidden;}
 .flexBox { display: flex;}
 
 ::selection {
-    background: var(--yellow);
+    background: var(--point-light);
     color: var(--white);
 }
 
@@ -30,7 +193,7 @@ body::-webkit-scrollbar-button {
 }
 
 body::-webkit-scrollbar-thumb {
-    background: var(--yellow);
+    background: var(--point-light);
     border-radius: 10px;
 }
 
