@@ -130,18 +130,23 @@ body::-webkit-scrollbar-thumb {
     max-width: calc(100% - 48px);
     height: 78px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin: 0 auto;
     color: var(--black);
 }
 
 #header .header_bg {
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    width: fit-content;
     height: 78px;
     position: sticky;
     top: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 30px;
+    padding: 20px;
     background-color: var(--header-bg);
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
