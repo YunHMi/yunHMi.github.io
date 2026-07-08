@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     // 1. header, footer 등 공통 파일 먼저 불러오기
     await includeCommonFiles();
 
-    // 2. include 된 header 안의 버튼을 사용할 수 있도록 include 이후 실행
+    // 2.include 이후 실행
     initThemeMode();
 
     // 3. header/footer 로드 후 active 메뉴 실행

@@ -1,6 +1,7 @@
 @charset "utf-8";
 
 /* common.css */
+
 :root {
     --bg: #FFFCFF;
     --black: #222222;
@@ -8,6 +9,9 @@
     --point: #765276;
     --point-light: #F4EEF5;
     --white: #E8DDE9;
+
+    --header-bg: rgba(255, 255, 255, 0.82);
+    --header-shadow: rgba(0, 0, 0, 0.12);
 }
 
 html[data-theme="dark"] {
@@ -17,40 +21,63 @@ html[data-theme="dark"] {
     --point: #B58AB5;
     --point-light: #2A202C;
     --white: #3A2C3D;
+
+    --header-bg: rgba(33, 27, 36, 0.82);
+    --header-shadow: rgba(0, 0, 0, 0.35);
 }
 
-/* 전체 기본 컬러 */
+
+/* ==================================================
+    전체 기본 스타일
+================================================== */
 body {
+    position: relative;
+    overflow-x: hidden;
     background: var(--bg);
     color: var(--black);
     transition: background-color 0.35s ease, color 0.35s ease;
 }
 
-/* 예시 공통 요소 */
-.header {
-    background: var(--card);
-    border: 1px solid var(--white);
-    color: var(--black);
-    transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease;
+
+/* ==================================================
+    텍스트 드래그 컬러
+================================================== */
+::selection {
+    background: var(--point);
+    color: var(--card);
 }
 
-.header a {
-    color: var(--black);
-    transition: color 0.3s ease;
+
+/* ==================================================
+    스크롤바
+================================================== */
+body::-webkit-scrollbar {
+    width: 10px;
 }
 
-@media (hover: hover) {
-    .header a:hover {
-        color: var(--point);
-    }
+body::-webkit-scrollbar-button {
+    background: none;
+    height: 0;
 }
 
+body::-webkit-scrollbar-thumb {
+    background: var(--point-light);
+    border-radius: 10px;
+}
+
+
+/* ==================================================
+    공통 컬러 클래스
+================================================== */
 .project-card,
 .card {
     background: var(--card);
     color: var(--black);
     border: 1px solid var(--white);
-    transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease;
+    transition:
+        background-color 0.35s ease,
+        border-color 0.35s ease,
+        color 0.35s ease;
 }
 
 .point {
@@ -61,21 +88,131 @@ body {
     background: var(--point-light);
 }
 
-/* 테마 버튼 */
+
+/* ==================================================
+    테마 변경 원형 확산 효과
+    - 버튼 클릭 위치를 기준으로 원형 배경이 퍼지는 효과
+================================================== */
+.themeOverlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 140vmax;
+    height: 140vmax;
+    border-radius: 50%;
+    background: var(--bg);
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 99999;
+}
+
+.themeOverlay.is-active {
+    animation: themeOverlay 0.7s ease forwards;
+}
+
+@keyframes themeOverlay {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+
+/* ==================================================
+    header
+================================================== */
+#header_bg {
+    width: 100%;
+    height: 78px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: var(--header-bg);
+    box-shadow: 0 4px 6px var(--header-shadow);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    z-index: 9999;
+}
+
+#header {
+    width: 1280px;
+    max-width: calc(100% - 48px);
+    height: 78px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    color: var(--black);
+}
+
+#header a {
+    color: var(--black);
+    transition: color 0.3s ease;
+}
+
+#header .rightBox {
+    display: flex;
+    align-items: center;
+    gap: 0 20px;
+}
+
+#header nav ul {
+    display: flex;
+    align-items: center;
+    gap: 0 30px;
+    font-size: 1.2rem;
+}
+
+@media (hover: hover) {
+    #header nav a:hover {
+        color: var(--point);
+    }
+}
+
+
+/* ==================================================
+    다크모드 toggle button
+    - 원형 버튼 하나 안에서 해 / 달 아이콘 전환
+    - light: 해 아이콘 노출
+    - dark: 달 아이콘 노출
+================================================== */
 .toggleBtn {
     position: relative;
     width: 42px;
     height: 42px;
+    flex-shrink: 0;
     border: 1px solid var(--white);
     border-radius: 50%;
     background: var(--card);
     cursor: pointer;
     overflow: hidden;
-    flex-shrink: 0;
     transition:
         background-color 0.35s ease,
         border-color 0.35s ease,
         transform 0.25s ease;
+}
+
+/* header 안에서도 동일한 원형 버튼 유지 */
+#header .toggleBtn {
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--white);
+    border-radius: 50%;
+    background: var(--card);
+}
+
+/* button 기본 스타일 제거 */
+.toggleBtn {
+    appearance: none;
+    -webkit-appearance: none;
+    padding: 0;
+    font: inherit;
 }
 
 @media (hover: hover) {
@@ -139,122 +276,16 @@ html[data-theme="dark"] .toggleMoon {
     transform: translate(-50%, -50%) rotate(0deg) scale(1);
 }
 
-/* 원형 확산 효과 */
-.themeOverlay {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 140vmax;
-    height: 140vmax;
-    border-radius: 50%;
-    background: var(--bg);
-    transform: translate(-50%, -50%) scale(0);
-    opacity: 0;
-    pointer-events: none;
-    z-index: 9999;
-}
-
-.themeOverlay.is-active {
-    animation: themeOverlay 0.7s ease forwards;
-}
-
-@keyframes themeOverlay {
-    0% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(0);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(1);
-    }
-}
-
-
-
-
-body { position: relative; overflow-x: hidden;}
-.leftBox { float: left;}
-.rightBox { float: right;}
-.flexBox { display: flex;}
-
-::selection {
-    background: var(--point-light);
-    color: var(--white);
-}
-
-body::-webkit-scrollbar {
-    width: 10px;  
-}
-
-body::-webkit-scrollbar-button {
-    background: none;
-    height: 0;
-}
-
-body::-webkit-scrollbar-thumb {
-    background: var(--point-light);
-    border-radius: 10px;
-}
-
-/* header */
-#header_bg {
-    width: 100%;
-    height: 78px;
-    position: sticky;
-    top: 0;
-    left: 0;
-    box-shadow:0 4px 6px rgba(0,0,0,0.2);
-    background-color: var(--white), 0.8; 
-    backdrop-filter: saturate(180%) blur(20px);
-    z-index: 9999;
-}
-
-#header {
-    width: 1280px;
-    height: 78px;
-    display: flex; 
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto;
-}
-#header .rightBox {
-    display: flex;
-    gap: 0 20px;
-}
-
-#header nav ul {
-    display: flex;
-    gap: 0 30px;
-    font-size: 1.2rem;
-    align-items: center;
-}
-
-#header nav a:hover {
-    color:var(--point);
-}
-
-/* 다크모드 button */
-#header .toggleBtn {
-    width: 80px;
-    height: 25px;
-    border: 1px solid var(--black);
-    border-radius: 15px;
-}
-
-#header .toggleBtn > div {
-    width: 50%;
-}
-
 
 /* footer */
 footer {
+    padding: 50px 0;
     background: var(--point);
-    text-align:center; padding:50px 0;
-    font-size:0.95rem
+    text-align: center;
+    font-size: 0.95rem;
 }
 
 footer > p {
-    color: var(--white); 
+    color: var(--card);
     line-height: 1.5;
 }
