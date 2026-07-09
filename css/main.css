@@ -10,6 +10,7 @@ div[class^="section"] {
     position: relative;
 }
 
+/* section1 */
 .section1 {
     background: url(../images/section01_bg.png);
     background-repeat: repeat;
@@ -40,3 +41,9 @@ div[class^="section"] {
     display: inline-block;
     width: 100%;
 }
+
+/* .section2 */
+.section2 {}
+
+/* .section3 */
+.section3 {}
