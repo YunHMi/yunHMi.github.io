@@ -96,12 +96,6 @@ div[class^="section"] {
     color: #222;
 }
 
-/* 복제된 카드도 기존 순서에 따라 자연스럽게 보이도록 처리 */
-.younSwiper-slide.is-clone:nth-child(even) {
-    background: #F4EEF5;
-    color: #222;
-}
-
 .cardNum {
     display: block;
     margin-bottom: 42px;
