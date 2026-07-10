@@ -11,7 +11,9 @@ div[class^="section"] {
 }
 
 /* section1 */
-.section1{}
+#section1 {
+    background: url(../images/common/hero_bg.svg) no-repeat;
+}
 
 /* 핵심 역량 섹션 */
 .strengthSec {
