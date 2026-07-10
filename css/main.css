@@ -11,39 +11,211 @@ div[class^="section"] {
 }
 
 /* section1 */
-.section1 {
-    background: url(../images/section01_bg.png);
-    background-repeat: repeat;
-    padding: 150px 0;
+.section1{}
+
+/* 핵심 역량 섹션 */
+.strengthSec {
+    overflow: hidden;
+    padding: 120px 0;
+    background: #FFFCFF;
 }
 
-.section1 .secWrap {
-    position: relative;
-    max-width: 1200px;
-    height: 100%;
+.strengthSec .inner {
+    max-width: 1440px;
     margin: 0 auto;
 }
 
-.section1 b {
-    position: absolute;
-    top: 100px;
-    left: 50px;
-    display: inline-block;
-    font-size: 20px;
-    font-weight: bold;
+/* 섹션 타이틀 */
+.sectionTitle {
+    text-align: center;
+    margin-bottom: 50px;
 }
 
-.section1 span {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    text-align: center;
+.sectionLabel {
     display: inline-block;
+    margin-bottom: 12px;
+    color: #765276;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.sectionTitle h2 {
+    font-size: 42px;
+    line-height: 1.25;
+    color: #222;
+}
+
+.sectionTitle p {
+    margin-top: 16px;
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* 슬라이드 전체 영역 */
+.younSwiper {
+    overflow: hidden;
     width: 100%;
 }
 
-/* .section2 */
-.section2 {}
+/* 실제로 움직이는 카드 묶음 */
+.younSwiper-wrap {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    will-change: transform;
+}
+
+/* JS에서 desktop 상태일 때만 자동 흐름 적용 */
+.younSwiper.pc .younSwiper-wrap {
+    animation: younMarquee 36s linear infinite;
+}
+
+/* hover, focus 시 멈춤 */
+.younSwiper.stop .younSwiper-wrap {
+    animation-play-state: paused;
+}
+
+/* 개별 카드 */
+.younSwiper-slide {
+    flex: 0 0 360px;
+    min-height: 280px;
+    padding: 32px;
+    border-radius: 28px;
+    background: #342B36;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+/* 짝수 카드 컬러 변경 */
+.younSwiper-slide:nth-child(even) {
+    background: #F4EEF5;
+    color: #222;
+}
+
+/* 복제된 카드도 기존 순서에 따라 자연스럽게 보이도록 처리 */
+.younSwiper-slide.is-clone:nth-child(even) {
+    background: #F4EEF5;
+    color: #222;
+}
+
+.cardNum {
+    display: block;
+    margin-bottom: 42px;
+    font-size: 14px;
+    color: #B58AB5;
+}
+
+.cardTitle {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.card__desc {
+    margin-top: 18px;
+    font-size: 15px;
+    line-height: 1.65;
+    opacity: 0.82;
+}
+
+.cardTag {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 28px;
+}
+
+.cardTag span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    font-size: 12px;
+    line-height: 1;
+}
+
+.younSwiper-slide:nth-child(even) .cardTag span {
+    background: rgba(118, 82, 118, 0.12);
+    color: #765276;
+}
+
+/* 무한으로 흐르는 애니메이션 */
+@keyframes younMarquee {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+    .strengthSec {
+        padding: 80px 0;
+    }
+
+    .sectionTitle {
+        padding: 0 20px;
+        margin-bottom: 36px;
+    }
+
+    .sectionTitle h2 {
+        font-size: 28px;
+    }
+
+    .sectionTitle p {
+        font-size: 14px;
+    }
+
+    .younSwiper {
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 0 20px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .younSwiper::-webkit-scrollbar {
+        display: none;
+    }
+
+    .younSwiper.mo .younSwiper-wrap {
+        width: auto;
+        gap: 14px;
+        animation: none !important;
+    }
+
+    .younSwiper-slide {
+        flex: 0 0 82%;
+        min-height: 250px;
+        padding: 28px;
+        border-radius: 24px;
+        scroll-snap-align: center;
+    }
+
+    .cardTitle {
+        font-size: 24px;
+    }
+
+    .card__desc {
+        font-size: 14px;
+    }
+}
+
+/* 움직임 줄이기 설정 */
+@media (prefers-reduced-motion: reduce) {
+    .younSwiper.mo .younSwiper-wrap {
+        animation: none !important;
+    }
+}
 
 /* .section3 */
 .section3 {}
