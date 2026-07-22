@@ -10,9 +10,10 @@ div[id^="section"] {
     position: relative;
 }
 
+
 /* 소개영역 */
 .heroSec {
-    background: url(../images/common/hero_bg.svg) no-repeat;
+    background: ;
     text-align: center;
 }
 
@@ -26,11 +27,11 @@ div[id^="section"] {
     width: 100%;
 }
 
+
 /* 핵심 역량 섹션 */
 .strengthSec {
     overflow: hidden;
     padding: 120px 0;
-    background: #FFFCFF;
 }
 
 .strengthSec .inner {
